@@ -290,10 +290,11 @@ contract VaultPriceFeed is IVaultPriceFeed {
 
         if (chainlinkFlags != address(0)) {
             bool isRaised = IChainlinkFlags(chainlinkFlags).getFlag(FLAG_ARBITRUM_SEQ_OFFLINE);
-            if (isRaised) {
-                    // If flag is raised we shouldn't perform any critical operations
-                revert("Chainlink feeds are not being updated");
-            }
+            require(!isRaised, "Chainlink feeds are not being updated");
+            // if (isRaised) {
+            //         // If flag is raised we shouldn't perform any critical operations
+            //     revert("Chainlink feeds are not being updated");
+            // }
         }
 
         IPriceFeed priceFeed = IPriceFeed(priceFeedAddress);

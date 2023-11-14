@@ -166,7 +166,7 @@ describe("Vault.swap", function () {
     await expect(vault.sellUSDG(btc.address, user3.address))
       .to.be.revertedWith("Vault: poolAmount exceeded")
   })
-
+ 
   it("caps max USDG amount", async () => {
     await bnbPriceFeed.setLatestAnswer(toChainlinkPrice(600))
     await ethPriceFeed.setLatestAnswer(toChainlinkPrice(3000))
