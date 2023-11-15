@@ -124,7 +124,7 @@ function getSwapFees(token, amount) {
 async function getMinOut(tokenDecimals, triggerRatio, path, amountIn) {
     const tokenAPrecision = expandDecimals(1, tokenDecimals[path[0]]);
     const tokenBPrecision = expandDecimals(1, tokenDecimals[path[path.length - 1]]);
-
+    
     let minOut = (amountIn.mul(PRICE_PRECISION).div(triggerRatio))
         .mul(tokenBPrecision).div(tokenAPrecision);
     const swapFees = getSwapFees(path[path.length - 1], minOut);

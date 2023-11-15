@@ -2,8 +2,11 @@ require("@nomiclabs/hardhat-waffle")
 require("@nomiclabs/hardhat-etherscan")
 require("hardhat-contract-sizer")
 require('@typechain/hardhat')
+require("solidity-coverage")
+const { config } = require("dotenv");
+const { resolve } = require("path");
 
-
+config({ path: resolve(__dirname, "./.env") });
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
