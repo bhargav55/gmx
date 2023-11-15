@@ -216,6 +216,12 @@ describe("OrderBook, swap orders", function () {
             triggerRatio: 1,
             value: 100
         }), 5).to.be.revertedWith("OrderBook: incorrect execution fee transferred");
+        await expect(defaultCreateSwapOrder({
+            path: [dai.address, btc.address],
+            triggerRatio: toUsd(1).mul(PRICE_PRECISION).div(toUsd(58000)),
+            triggerAboveThreshold: false,
+            amountIn: expandDecimals(0, 18)
+        }), 5).to.be.revertedWith("OrderBook: invalid _amountIn");
     });
 
     it("createSwapOrder, DAI -> BTC", async () => {

@@ -18,8 +18,13 @@ uniswap-fee-reference.json
 keys
 tmp
 **/.DS_Store
-
+coverage/
+.coverage_artifacts/
+.coverage_cache/
+.coverage_contracts/
 #Hardhat files
 cache
 artifacts
 artifacts-v2/build-info
+*.env
+yarn-error.log*

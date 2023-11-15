@@ -67,7 +67,7 @@ describe("Vault.swap", function () {
     glpManager = await deployContract("GlpManager", [vault.address, usdg.address, glp.address, ethers.constants.AddressZero, 24 * 60 * 60])
   })
 
-  it.only("swap", async () => {
+  it("swap", async () => {
     await expect(vault.connect(user1).swap(bnb.address, btc.address, user2.address))
       .to.be.revertedWith("Vault: _tokenIn not whitelisted")
 
